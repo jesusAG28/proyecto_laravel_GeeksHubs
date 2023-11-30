@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
  */
-class GamesFactory extends Factory
+class GameFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +19,6 @@ class GamesFactory extends Factory
     {
 
         $user = User::factory()->create();
-
-        $date = date('Y-m-d H:i:s');
-        $user->roles()->attach(1, ['created_at' => $date, 'updated_at' => $date]);
 
         return [
             'name' => fake()->unique()->randomElement([
@@ -44,7 +41,7 @@ class GamesFactory extends Factory
                 "Counter Stike: Global Offensive",
                 "Super Mario Wonder"
             ]),
-            'genre' => fake()->unique()->randomElement([
+            'gender' => fake()->unique()->randomElement([
                 "Adventure",
                 "Action",
                 "Platforms",
