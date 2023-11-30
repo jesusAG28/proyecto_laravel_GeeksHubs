@@ -3,9 +3,10 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Users>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
 class UsersFactory extends Factory
 {
@@ -17,7 +18,11 @@ class UsersFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->unique()->userName(),
+            'password' => Hash::make('123456'),
+            'email' => fake()->unique()->safeEmail(),
+            // 'role_id' => fake()->randomElement([1, 2])
+            'role_id' => 1
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Model
 {
@@ -15,8 +15,8 @@ class User extends Model
     ];
 
     // 1:1 con Role
-    public function roles(): HasOne
+    public function role(): BelongsTo
     {
-        return $this->hasOne(Role::class, 'role_id');
+        return $this->belongsTo(Role::class);
     }
 }

@@ -13,10 +13,9 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::factory(2)->create();
-        $users->each(function (User $user) {
-            $date = date('Y-m-d H:i:s');
-            $user->roles()->attach(1, ['created_at' => $date, 'updated_at' => $date]);
-        });
+        $users = User::factory(5)->create();
+        // $users->each(function (User $user) {
+        //     $date = date('Y-m-d H:i:s');
+        // });
     }
 }
