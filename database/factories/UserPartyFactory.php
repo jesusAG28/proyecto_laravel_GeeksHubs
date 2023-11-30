@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Party;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,15 @@ class UserPartyFactory extends Factory
      */
     public function definition(): array
     {
+
+        $party  = Party::factory()->create();
+
         return [
-            //
+            // 'student_id' => $student->id,
+            'party_id' => $party->id,
+            'owner' => fake()->randomElement([0,1]),
+            'active' => fake()->randomElement([0,1])
+
         ];
     }
 }
